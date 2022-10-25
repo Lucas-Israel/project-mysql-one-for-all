@@ -76,7 +76,6 @@ VALUES
 ('Somewhere Far Beyond',5),
 ('I Put A Spell On You',6);
 
-
 CREATE TABLE IF NOT EXISTS musicas (
   musica_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
   album_id INT NOT NULL,
@@ -85,6 +84,19 @@ CREATE TABLE IF NOT EXISTS musicas (
     FOREIGN KEY (album_id)
     REFERENCES albuns (album_id)
 );
+
+INSERT INTO SpotifyClone.musicas (album_id, nome)
+VALUES
+(1,'BREAK MY SOUL'),
+(1,'VIRGO’S GROOVE'),
+(1,'ALIEN SUPERSTAR'),
+(2,'Don’t Stop Me Now'),
+(3,'Under Pressure'),
+(4,'Como Nossos Pais'),
+(5,'O Medo de Amar é o Medo de Ser Livre'),
+(6,'Samba em Paris'),
+(7,'The Bard’s Song'),
+(8,'Feeling Good');
 
 CREATE TABLE IF NOT EXISTS historico_reproducao (
   hist_repro_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
