@@ -60,43 +60,45 @@ CREATE TABLE IF NOT EXISTS albuns (
   album_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
   artista_id INT NOT NULL,
   album VARCHAR(45) NOT NULL,
+  ano_lancamento YEAR NOT NULL,
   CONSTRAINT artista_id
     FOREIGN KEY (artista_id)
     REFERENCES artistas (artista_id)
 );
 
-INSERT INTO SpotifyClone.albuns (album, artista_id)
+INSERT INTO SpotifyClone.albuns (album, artista_id, ano_lancamento)
 VALUES
-('Renaissance',1),
-('Jazz',2),
-('Hot Space',2),
-('Falso Brilhante',3),
-('Vento de Maio',3),
-('QVVJFA?',4),
-('Somewhere Far Beyond',5),
-('I Put A Spell On You',6);
+('Renaissance',1,2022),
+('Jazz',2,1978),
+('Hot Space',2,1982),
+('Falso Brilhante',3,1998),
+('Vento de Maio',3,2001),
+('QVVJFA?',4,2003),
+('Somewhere Far Beyond',5,2007),
+('I Put A Spell On You',6,2012);
 
 CREATE TABLE IF NOT EXISTS musicas (
   musica_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
   album_id INT NOT NULL,
   nome VARCHAR(45) NOT NULL,
+  duracao_seconds INT NOT NULL,
   CONSTRAINT album_id
     FOREIGN KEY (album_id)
     REFERENCES albuns (album_id)
 );
 
-INSERT INTO SpotifyClone.musicas (album_id, nome)
+INSERT INTO SpotifyClone.musicas (album_id, nome, duracao_seconds)
 VALUES
-(1,'BREAK MY SOUL'),
-(1,'VIRGO’S GROOVE'),
-(1,'ALIEN SUPERSTAR'),
-(2,'Don’t Stop Me Now'),
-(3,'Under Pressure'),
-(4,'Como Nossos Pais'),
-(5,'O Medo de Amar é o Medo de Ser Livre'),
-(6,'Samba em Paris'),
-(7,'The Bard’s Song'),
-(8,'Feeling Good');
+(1,'BREAK MY SOUL',279),
+(1,'VIRGO’S GROOVE',369),
+(1,'ALIEN SUPERSTAR',116),
+(2,'Don’t Stop Me Now',203),
+(3,'Under Pressure',152),
+(4,'Como Nossos Pais',105),
+(5,'O Medo de Amar é o Medo de Ser Livre',207),
+(6,'Samba em Paris',267),
+(7,'The Bard’s Song',244),
+(8,'Feeling Good',100);
 
 CREATE TABLE IF NOT EXISTS historico_reproducao (
   usuario_id INT NOT NULL,
@@ -130,9 +132,10 @@ VALUES
 (9,9,'2022-02-24 21:14:22'),
 (10,3,'2015-12-13 08:30:22');
 
-CREATE TABLE IF NOT EXISTS following (
+CREATE TABLE IF NOT EXISTS `following` (
   usuario_id INT NOT NULL,
   artista_id INT NOT NULL,
+  PRIMARY KEY (usuario_id, artista_id),
   CONSTRAINT usuariof_id
     FOREIGN KEY (usuario_id)
     REFERENCES usuarios (usuario_id),
@@ -140,3 +143,20 @@ CREATE TABLE IF NOT EXISTS following (
     FOREIGN KEY (artista_id)
     REFERENCES artistas (artista_id)
 );
+
+INSERT INTO SpotifyClone.following (usuario_id, artista_id)
+VALUES
+(1,1),
+(1,2),
+(1,3),
+(2,1),
+(2,3),
+(3,2),
+(4,4),
+(5,5),
+(5,6),
+(6,6),
+(6,1),
+(7,6),
+(9,3),
+(10,2);
