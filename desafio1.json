@@ -4,7 +4,7 @@
   "tabela_plano": "planos",
   "coluna_plano": "plano_id",
   "tabela_historico_de_reproducoes": "historico_reproducao",
-  "coluna_historico_de_reproducoes": "hist_repro_id",
+  "coluna_historico_de_reproducoes": "usuario_id",
   "tabela_seguindo_artistas": "following",
   "coluna_seguindo_artistas": "usuario_id",
   "tabela_artista": "artistas",
