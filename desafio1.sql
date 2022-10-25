@@ -65,6 +65,18 @@ CREATE TABLE IF NOT EXISTS albuns (
     REFERENCES artistas (artista_id)
 );
 
+INSERT INTO SpotifyClone.albuns (album, artista_id)
+VALUES
+('Renaissance',1),
+('Jazz',2),
+('Hot Space',2),
+('Falso Brilhante',3),
+('Vento de Maio',3),
+('QVVJFA?',4),
+('Somewhere Far Beyond',5),
+('I Put A Spell On You',6);
+
+
 CREATE TABLE IF NOT EXISTS musicas (
   musica_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
   album_id INT NOT NULL,
