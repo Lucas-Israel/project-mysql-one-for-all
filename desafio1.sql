@@ -52,7 +52,7 @@ VALUES
 ('Beyoncé'),
 ('Queen'),
 ('Elis Regina'),
-('Baco exu do Blues'),
+('Baco Exu do Blues'),
 ('Blind Guardian'),
 ('Nina Simone');
 
